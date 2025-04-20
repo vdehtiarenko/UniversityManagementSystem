@@ -1,0 +1,114 @@
+﻿<Window x:Class="UniversityManagementSystem.Views.Windows.TeacherEditWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:UniversityManagementSystem.Views.Windows"
+        mc:Ignorable="d"
+        Icon="/Images/whiteI.jpg" 
+        Height="330" 
+        Width="350" 
+        ResizeMode="NoResize"
+        WindowStartupLocation="CenterScreen">
+    <DockPanel>
+        <StackPanel DockPanel.Dock="Top" Orientation="Vertical" Margin="10,10,10,0">
+            <StackPanel Orientation="Vertical" Margin="16,10,16,5">
+                <TextBlock Text="Edit a teacher:" FontSize="25" FontFamily="Arial" />
+                <TextBlock Text="First name" FontSize="18" FontFamily="Arial" Margin="0,25,0,3"/>
+                <TextBox 
+                    Name="TeacherFirstNameTextBox"
+                    HorizontalAlignment="Left"
+                    VerticalAlignment="Top"
+                    Margin="0,0,0,0" 
+                    Width="222" 
+                    FontSize="18" 
+                    FontFamily="Arial" 
+                    Text="{Binding FirstName, UpdateSourceTrigger=PropertyChanged}">
+                    <TextBox.Style>
+                        <Style TargetType="TextBox">
+                            <Setter Property="BorderBrush" Value="Black"/>
+                            <Setter Property="BorderThickness" Value="0,0,0,2"/>
+                            <Setter Property="Background" Value="Transparent"/>
+                            <Setter Property="FocusVisualStyle" Value="{x:Null}"/>
+                        </Style>
+                    </TextBox.Style>
+                </TextBox>
+                <TextBlock Text="Last name" FontSize="18" FontFamily="Arial" Margin="0,15,0,3"/>
+                <TextBox 
+                    Name="TeacherLastNameTextBox" 
+                    HorizontalAlignment="Left" 
+                    VerticalAlignment="Top" 
+                    Margin="0,0,0,0" 
+                    Width="222" 
+                    FontSize="18" 
+                    FontFamily="Arial" 
+                    Text="{Binding LastName, UpdateSourceTrigger=PropertyChanged}">
+                    <TextBox.Style>
+                        <Style TargetType="TextBox">
+                            <Setter Property="BorderBrush" Value="Black"/>
+                            <Setter Property="BorderThickness" Value="0,0,0,2"/>
+                            <Setter Property="Background" Value="Transparent"/>
+                            <Setter Property="FocusVisualStyle" Value="{x:Null}"/>
+                        </Style>
+                    </TextBox.Style>
+                </TextBox>
+            </StackPanel>
+
+        </StackPanel>
+
+        <Grid DockPanel.Dock="Bottom" VerticalAlignment="Bottom"  Margin="10">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition  Width="*" />
+                <ColumnDefinition  Width="auto" />
+                <ColumnDefinition  Width="auto" />
+            </Grid.ColumnDefinitions>
+            <Button 
+            Grid.Column="2" 
+            Content="Save changes" 
+            Width="100" 
+            Height="27"
+            FontSize="16" 
+            FontFamily="Areal"
+            Background="Black" 
+            Foreground="White" 
+            HorizontalAlignment="Center" 
+            VerticalAlignment="Center"
+            Command="{Binding EditTeacherCommand}">
+                <Button.Template>
+                    <ControlTemplate TargetType="Button">
+                        <Border Background="{TemplateBinding Background}" 
+                        CornerRadius="3" 
+                        BorderBrush="Gray" 
+                        BorderThickness="1">
+                            <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                        </Border>
+                    </ControlTemplate>
+                </Button.Template>
+            </Button>
+            <Button 
+            Grid.Column="1" 
+            Content="Cansel" 
+            Width="80"
+            Height="27"
+            FontSize="16" 
+            FontFamily="Areal"
+            Background="White" 
+            Foreground="Black" 
+            HorizontalAlignment="Center" 
+            VerticalAlignment="Center"
+            Margin="0,0,10,0"
+            Command="{Binding CloseWindowCommand}">
+                <Button.Template>
+                    <ControlTemplate TargetType="Button">
+                        <Border Background="{TemplateBinding Background}" 
+CornerRadius="3" 
+BorderBrush="Gray" BorderThickness="1">
+                            <ContentPresenter HorizontalAlignment="Center" 
+              VerticalAlignment="Center"/>
+                        </Border>
+                    </ControlTemplate>
+                </Button.Template>
+            </Button>
+        </Grid>
+    </DockPanel>
+</Window>
